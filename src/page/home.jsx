@@ -1,25 +1,23 @@
-import { useSelector, useDispatch } from 'react-redux'
-import userAction from '../redux/user/userActions'
-import { useRef } from 'react'
+import './style.css'
+import useGetProducts from '../hooks/useGetProducts'
+import Card from '../components/card'
+
 const Home = () => {
-    const nameRef = useRef(null)
-    const { currentUser } = useSelector(rootReducer => rootReducer.useReducer)
-    const dispatch = useDispatch()
-
-    const handdleClick = () => {
-        dispatch({
-            type: userAction.LOGIN,
-            payload: {name: nameRef.current?.value, token: "123456"}
-        })
-        console.log(currentUser)
-    }
-    
-
-    
+  const data = useGetProducts()
+     
   return (
-    <div>
-        <input type="text" placeholder='InputTest' ref={nameRef}/>
-        <button onClick={handdleClick}>Click</button>
+    <div className='homeContainer'>      
+      <div className="slideCards">
+        {data && data.map(product => (
+          <Card
+            key={product.id} 
+            productId={product.id}
+            title={product.title} 
+            price={product.price} 
+            imgUrl={product.imgUrl}
+          />
+        ))}
+        </div>
     </div>
   )
 }

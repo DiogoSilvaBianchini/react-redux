@@ -1,0 +1,119 @@
+.cartContainer{
+    width: 100%;
+    height: 100vh;
+    background: #0000008a;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.cartContainer aside{
+    position: relative;
+    width: 35%;
+    min-width: 400px;
+    height: 95%;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    background-color: #fff;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: auto;
+}
+
+.cartContainer aside > .closeBtn{
+    width: 32px;
+    height: 32px;
+    left: 0px;
+    border-radius: 0px;
+    background-color: #fff;
+    color: #222;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-top-left-radius: 15px;
+}
+
+.cartContainer aside > .closeBtn:hover{
+    background-color: rgb(209, 0, 0);
+    color: #fff;
+}
+
+.cartContainer aside .content{
+    width: 90%;
+    padding-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 45px;
+    margin-top: 25px;
+}
+
+.cartContainer aside .price{
+    width: 100%;
+    padding: 15px 0px;
+    background-color: #222;
+    border-bottom-left-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    position: absolute;
+    bottom: 0px;
+    position: relative;
+}
+
+.cartContainer aside .price span{
+    margin-left: 15px;
+    font-size: 1.2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    color: #fff;
+}
+
+.cartContainer aside .price button{
+    padding: 5px 10px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+
+@keyframes outAside{
+    0%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100%{
+        opacity: 0;
+        display: none;
+        transform: translateX(400px);
+    }
+}
+
+@keyframes screenColor{
+    0%{
+        background: #0000008a;
+    }
+    100%{
+        background-color: #00000000;
+    }
+}
+
+.outAside{
+    animation: outAside .3s forwards linear;
+}
+
+.outScreen{
+    animation: screenColor .5s forwards linear;
+}

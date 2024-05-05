@@ -1,0 +1,69 @@
+.cardCart{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid #e9e9e9;
+    padding: 15px 0px;
+}
+
+.cardCart .imgContainer{
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardCart img{
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.closeBtn{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.describe{
+    margin-left: 15px;
+}
+
+.describe h2{
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
+    max-width: 80%;
+}
+
+.describe .quantity{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.describe .quantity button{
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.closeBtn{
+    padding: 5px 8px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.closeBtn:hover{
+    background-color: rgb(190, 0, 0);
+}
