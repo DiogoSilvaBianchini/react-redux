@@ -10,14 +10,23 @@ const useCartReducer = (state = initialState, action) => {
             return {...state, 
                 currentCart: [...state.currentCart, action.payload]
             }
-        case "cart/addQuantity":
+            
+        case "cart/toSub":
+            var filterProducts = state.currentCart.filter(product => product.id !== action.payload.id)
+            
+            return {state, 
+                currentCart: filterProducts, 
+                totalCart: state.totalCart -= action.payload.productPrice
+            }
+
+        case "cart/addQuantity":         
             for(let product of state.currentCart){
                 if(product.id === action.payload.id){
                     state.totalCart += action.payload.productPrice
                     product.quantity += 1
                 }
             }
-            return state
+            return {...state}
         case "car/subQuantity":
             for(let product of state.currentCart){
                 if(product.id === action.payload.id){
@@ -27,7 +36,7 @@ const useCartReducer = (state = initialState, action) => {
                     }
                 }
             }
-            return state
+            return {...state}
         default:
             return state
     }

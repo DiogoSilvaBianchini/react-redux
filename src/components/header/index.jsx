@@ -1,15 +1,18 @@
 import { useState } from 'react'
 import Cart from '../cart'
 import './style.css'
+import ToggleBtn from '../toggleBtn'
 
 const Header = () => {
   const [cart, setCart] = useState(false)
+  console.log(cart)
   return (
     <header>
       {cart ? <Cart active={setCart} />:""}
       <ul>
-          <li><button>Login</button></li>
-          <li><button onClick={() => setCart(true)}>Carrinhos</button></li>
+          <li>
+            <ToggleBtn setCart={setCart} cart={cart}/>
+          </li>
       </ul>
     </header>
   )
